@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UBI Swiss</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .social-icon {
+            width: 24px;
+            height: 24px;
+            fill: #ffffff; /* Color blanco para los SVG */
+        }
+        nav a {
+            transition: color 0.3s ease, transform 0.2s ease;
+        }
+        nav a:hover {
+            color: #d32f2f; /* Rojo oscuro al pasar el cursor */
+            transform: translateY(-2px); /* Elevación ligera */
+        }
+        .submenu {
+            display: none; /* Oculta los submenús por defecto */
+        }
+        .group:hover .submenu {
+            display: block; /* Muestra los submenús al pasar el mouse */
+        }
+        .submenu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 50;
+            background-color: #ffffff;
+            color: #000000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            min-width: 220px;
+        }
+        .submenu a {
+            padding: 10px 16px;
+            display: block;
+            white-space: nowrap; /* Evita que el texto se parta en varias líneas */
+        }
+        .submenu a:hover {
+            background-color: #f3f4f6; /* Fondo gris claro al hover */
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+
+    <!-- First Section: Red Bar -->
+    <section class="bg-red-600 text-white py-4">
+        <div class="container mx-auto flex justify-end items-center px-6 lg:px-16 space-x-6">
+            <!-- Social Media Icons -->
+            <a href="https://www.facebook.com/profile.php?id=61561971363926&mibextid=LQQJ4d" target="_blank" rel="noopener noreferrer">
+                <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+                    <path d="M 25 3 C 12.861562 3 3 12.861562 3 25 C 3 36.019135 11.127533 45.138355 21.712891 46.728516 L 22.861328 46.902344 L 22.861328 29.566406 L 17.664062 29.566406 L 17.664062 26.046875 L 22.861328 26.046875 L 22.861328 21.373047 C 22.861328 18.494965 23.551973 16.599417 24.695312 15.410156 C 25.838652 14.220896 27.528004 13.621094 29.878906 13.621094 C 31.758714 13.621094 32.490022 13.734993 33.185547 13.820312 L 33.185547 16.701172 L 30.738281 16.701172 C 29.349697 16.701172 28.210449 17.475903 27.619141 18.507812 C 27.027832 19.539724 26.84375 20.771816 26.84375 22.027344 L 26.84375 26.044922 L 32.966797 26.044922 L 32.421875 29.564453 L 26.84375 29.564453 L 26.84375 46.929688 L 27.978516 46.775391 C 38.71434 45.319366 47 36.126845 47 25 C 47 12.861562 37.138438 3 25 3 z"></path>
+                </svg>
+            </a>
+            <a href="https://www.instagram.com/ubi.swiss?igsh=MXBvOW83OW4zbmJpNg%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer">
+                <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+                    <path d="M 16 3 C 8.8324839 3 3 8.8324839 3 16 L 3 34 C 3 41.167516 8.8324839 47 16 47 L 34 47 C 41.167516 47 47 41.167516 47 34 L 47 16 C 47 8.8324839 41.167516 3 34 3 L 16 3 z M 16 5 L 34 5 C 40.086484 5 45 9.9135161 45 16 L 45 34 C 45 40.086484 40.086484 45 34 45 L 16 45 C 9.9135161 45 5 40.086484 5 34 L 5 16 C 5 9.9135161 9.9135161 5 16 5 z M 37 11 A 2 2 0 0 0 35 13 A 2 2 0 0 0 37 15 A 2 2 0 0 0 39 13 A 2 2 0 0 0 37 11 z M 25 14 C 18.936712 14 14 18.936712 14 25 C 14 31.063288 18.936712 36 25 36 C 31.063288 36 36 31.063288 36 25 C 36 18.936712 31.063288 14 25 14 z M 25 16 C 29.982407 16 34 20.017593 34 25 C 34 29.982407 29.982407 34 25 34 C 20.017593 34 16 29.982407 16 25 C 16 20.017593 20.017593 16 25 16 z"></path>
+                </svg>
+            </a>
+            <a href="#donate" class="bg-white text-red-600 px-6 py-2 rounded-lg hover:bg-gray-200 text-sm lg:text-base">Donar</a>
+        </div>
+    </section>
+
+    <section class="bg-white text-gray-800 shadow-md sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center px-6 lg:px-16 py-4">
+            <!-- Logo -->
+            <img src="https://ubiswiss.org/wp-content/uploads/2024/05/Logo-UBI-Swiss-Org.webp" alt="UBI Swiss Logo" class="w-32 lg:w-40">
+            
+            <!-- Hamburger Button for Mobile -->
+            <button class="md:hidden focus:outline-none" id="menu-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+    
+            <!-- Main Menu (Desktop View) -->
+            <nav class="hidden md:flex space-x-6 text-base font-bold relative" id="menu">
+                <a href="#home" class="hover:text-red-600">Home</a>
+                <a href="#about-us" class="hover:text-red-600">Sobre Nosotros</a>
+                
+                <!-- Dropdown Menu -->
+                <div class="relative group">
+                    <a href="#" class="hover:text-red-600">Nuestro Trabajo</a>
+                    <div class="submenu bg-white shadow-lg rounded-lg absolute hidden group-hover:block">
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">La Renta Básica</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Baños y Pozos Sépticos</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Cocinas Libres de Humo</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Atención Básica Sanitaria</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Cuidado Dental</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Protección para Perros y Gatos</a>
+                    </div>
+                </div>
+    
+                <a href="#africa" class="hover:text-red-600">Africa</a>
+                <a href="#contact-us" class="hover:text-red-600">Contáctenos</a>
+            </nav>
+        </div>
+    
+        <!-- Responsive Menu for Mobile -->
+        <div class="hidden flex flex-col bg-white md:hidden" id="responsive-menu">
+            <a href="#home" class="py-4 px-6 border-b border-gray-300 hover:bg-gray-100">Home</a>
+            <a href="#about-us" class="py-4 px-6 border-b border-gray-300 hover:bg-gray-100">Sobre Nosotros</a>
+            <div class="relative">
+                <button class="py-4 px-6 w-full text-left hover:bg-gray-100 flex items-center justify-between" id="submenu-toggle">
+                    Nuestro Trabajo
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 9l6 6 6-6" />
+                    </svg>
+                </button>
+                <div class="hidden flex flex-col bg-gray-100 rounded-lg pl-6" id="mobile-submenu">
+                    <a href="#" class="py-3 px-6 hover:bg-gray-200">La Renta Básica</a>
+                    <a href="#" class="py-3 px-6 hover:bg-gray-200">Baños y Pozos Sépticos</a>
+                    <a href="#" class="py-3 px-6 hover:bg-gray-200">Cocinas Libres de Humo</a>
+                    <a href="#" class="py-3 px-6 hover:bg-gray-200">Atención Básica Sanitaria</a>
+                    <a href="#" class="py-3 px-6 hover:bg-gray-200">Cuidado Dental</a>
+                    <a href="#" class="py-3 px-6 hover:bg-gray-200">Protección para Perros y Gatos</a>
+                </div>
+            </div>
+            <a href="#africa" class="py-4 px-6 border-b border-gray-300 hover:bg-gray-100">Africa</a>
+            <a href="#contact-us" class="py-4 px-6 hover:bg-gray-100">Contáctenos</a>
+        </div>
+    
+        <!-- JavaScript -->
+        <script>
+            // Toggle Mobile Menu
+            const menuToggle = document.getElementById('menu-toggle');
+            const responsiveMenu = document.getElementById('responsive-menu');
+            const submenuToggle = document.getElementById('submenu-toggle');
+            const mobileSubmenu = document.getElementById('mobile-submenu');
+    
+            menuToggle.addEventListener('click', () => {
+                responsiveMenu.classList.toggle('hidden');
+            });
+    
+            submenuToggle.addEventListener('click', () => {
+                mobileSubmenu.classList.toggle('hidden');
+            });
+        </script>
+    </section>
+
+    <section class="bg-gray-100 py-12 flex justify-center">
+        <div class="container mx-auto px-6 lg:px-16 text-center">
+            <h2 class="text-4xl font-extrabold text-red-600 mb-6 animate-fadeIn">
+                🌍 Una oportunidad única para transformar vidas
+            </h2>
+            <p class="text-lg text-gray-700 max-w-2xl mx-auto animate-slideUp">
+                Ser voluntario en África no es solo una experiencia, es un compromiso con el cambio y la humanidad. Ayuda a construir un futuro mejor mientras desarrollas habilidades, conoces nuevas culturas y formas parte de un proyecto que impacta vidas todos los días.
+            </p>
+        </div>
+    </section>
+    
+    <!-- Animaciones -->
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    
+        .animate-fadeIn { animation: fadeIn 1.2s ease-out; }
+        .animate-slideUp { animation: slideUp 1.5s ease-out; }
+    </style>
+
+<div class="relative w-full max-w-4xl mx-auto overflow-hidden rounded-lg shadow-lg">
+    <div id="sliderContainer" class="flex transition-transform duration-700 ease-in-out">
+        <img src="https://ubiswiss.org/wp-content/uploads/slider/cache/7e554dc2faa90b13af608cd64e975bdf/fd29f545-116a-4156-9d1f-e09e17d7246c.jpg" 
+             alt="Voluntariado en África" class="w-full h-[400px] object-cover rounded-lg flex-shrink-0" style="object-position: center bottom;">
+        <img src="https://ubiswiss.org/wp-content/uploads/slider/cache/7f34d68481a063b0d19e013e5059885d/f8275ea5-942b-4a67-80af-0cd18c71ca0a.jpg" 
+             alt="Apoyo educativo en África" class="w-full h-[400px] object-cover rounded-lg flex-shrink-0">
+        <img src="https://ubiswiss.org/wp-content/uploads/slider/cache/8021db3c948ac8f285576e9af3342de6/2e89a758-a983-4be0-b6b4-6fe089e9608f.jpg" 
+             alt="Niños en Guinea Bissau" class="w-full h-[400px] object-cover rounded-lg flex-shrink-0">
+    </div>
+
+    <!-- Botones de navegación -->
+    <button id="prevBtn" class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white text-red-600 px-4 py-2 rounded-full shadow-lg">
+        ◀️
+    </button>
+    <button id="nextBtn" class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white text-red-600 px-4 py-2 rounded-full shadow-lg">
+        ▶️
+    </button>
+</div>
+
+<!-- JavaScript para el slider -->
+<script>
+    const slider = document.getElementById("sliderContainer");
+    let index = 0;
+
+    document.getElementById("prevBtn").addEventListener("click", () => {
+        index = (index - 1 + slider.children.length) % slider.children.length;
+        slider.style.transform = `translateX(-${index * 100}%)`;
+    });
+
+    document.getElementById("nextBtn").addEventListener("click", () => {
+        index = (index + 1) % slider.children.length;
+        slider.style.transform = `translateX(-${index * 100}%)`;
+    });
+</script>
+
+
+<section class="bg-gray-100 py-12 flex justify-center">
+    <div class="container mx-auto px-6 lg:px-16 grid grid-cols-1 md:grid-cols-2 gap-12">
+        
+        <!-- Español -->
+        <div class="bg-white shadow-lg rounded-lg p-8">
+            <h2 class="text-3xl font-bold text-red-600 mb-6">¡We are looking for volunteers in AFRICA!</h2>
+            <h3 class="text-xl font-semibold text-gray-800 mb-4">📍 Colaborador en Formación y Apoyo Educativo - Guinea Bissau</h3>
+            <p class="text-lg text-gray-700 mb-4">
+                Buscamos un voluntario motivado para apoyar a tres profesores de primaria y secundaria en el aprendizaje de habilidades informáticas básicas y la gestión de expedientes escolares.
+            </p>
+            <p class="text-lg text-gray-700">
+                Además, el puesto implica actividades de recopilación de datos sobre las condiciones de vivienda de los estudiantes, el apoyo al cuidado de los niños y la formación de las mujeres jóvenes del pueblo.
+            </p>
+
+            <h3 class="text-xl font-bold text-red-600 mt-6">🌍 Principales Responsabilidades</h3>
+            <ul class="list-disc pl-6 text-lg text-gray-700 space-y-2">
+                <li>Uso de un ordenador con sistema operativo Windows.</li>
+                <li>Conexión a Internet y navegación por navegador (Chrome o similar).</li>
+                <li>Uso del correo electrónico (envío y recepción de mensajes con archivos adjuntos).</li>
+                <li>Inserción de datos en tablas preexistentes en Excel y/o Google Sheets.</li>
+                <li>Uso de herramientas de inteligencia artificial como ChatGPT o DeepSeek.</li>
+                <li>Gestión de la matrícula de alumnos.</li>
+                <li>Creación y actualización de una tabla/ficha de alumnos.</li>
+                <li>Búsqueda y digitalización de expedientes en papel y certificados de vacunación.</li>
+                <li>Recopilación de datos sobre las condiciones de vivienda de los estudiantes.</li>
+                <li>Visita a los domicilios de los estudiantes acompañados por un profesor.</li>
+                <li>Recopilación de datos sobre: pozo de agua, letrina, tipo de cocina, estado del tejado, tipo de suelo, presencia de sistema fotovoltaico, cría de animales, etc.</li>
+                <li>Asistencia a los niños.</li>
+                <li>Cuidado de niños en edad preescolar (5-10 niños) durante el horario escolar.</li>
+                <li>Si tienes un diploma en educación infantil, puedes formar a mujeres jóvenes de la zona para que sean educadoras bajo la supervisión de un maestro de escuela primaria.</li>
+            </ul>
+
+            <h3 class="text-xl font-bold text-red-600 mt-6">🎁 Beneficios Ofrecidos</h3>
+            <ul class="list-disc pl-6 text-lg text-gray-700 space-y-2">
+                <li>Pasaje aéreo cubierto.</li>
+                <li>Alojamiento privado proporcionado.</li>
+                <li>Transporte y alojamiento gratuitos para visitas al país durante los fines de semana.</li>
+                <li>Reembolso de gastos de vacunas obligatorias.</li>
+                <li>Reembolso de gastos médicos in situ.</li>
+            </ul>
+
+            <h3 class="text-xl font-bold text-red-600 mt-6">✅ Requisitos</h3>
+            <ul class="list-disc pl-6 text-lg text-gray-700 space-y-2">
+                <li>Conocimientos básicos de uso de ordenadores e Internet.</li>
+                <li>Capacidad para enseñar conceptos básicos de ordenadores a personas con poca experiencia digital.</li>
+                <li>Capacidad para trabajar en contextos educativos y con niños.</li>
+                <li>Flexibilidad y adaptabilidad.</li>
+                <li>Preferiblemente experiencia en el sector educativo o con comunidades locales.</li>
+                <li>Experiencia laboral o de viaje en el Tercer Mundo.</li>
+            </ul>
+        </div>
+
+        <!-- Portugués -->
+        <div class="bg-white shadow-lg rounded-lg p-8">
+            <h2 class="text-3xl font-bold text-red-600 mb-6">Estamos à procura de voluntários na ÁFRICA!</h2>
+            <h3 class="text-xl font-semibold text-gray-800 mb-4">📍 Colaboradora para Formação e Apoio Educativo - Guinea Bissau</h3>
+            <p class="text-lg text-gray-700 mb-4">
+                Estamos à procura de um voluntário motivada para apoiar três professores do ensino fundamental e médio na aprendizagem de competências básicas de informática e na gestão de registros escolares.
+            </p>
+            <p class="text-lg text-gray-700">
+                Além disso, o cargo envolve atividades de coleta de dados sobre as condições habitacionais dos alunos, apoio à infância e formação de jovens mulheres da aldeia.
+            </p>
+
+            <h3 class="text-xl font-bold text-red-600 mt-6">🌍 Principais Responsabilidades</h3>
+            <ul class="list-disc pl-6 text-lg text-gray-700 space-y-2">
+                <li>Uso do computador com sistema operacional Windows.</li>
+                <li>Conexão à Internet e navegação em navegador (Chrome ou similar).</li>
+                <li>Uso do e-mail (envio e recebimento de mensagens com anexos).</li>
+                <li>Inserção de dados em tabelas preexistentes no Excel e/ou Google Sheets.</li>
+                <li>Uso de ferramentas de inteligência artificial como ChatGPT ou DeepSeek.</li>
+                <li>Gestão do registro de alunos.</li>
+                <li>Criação e atualização de uma tabela/registro de alunos.</li>
+                <li>Pesquisa e digitalização de registros em papel e certificados de vacinação.</li>
+                <li>Coleta de dados sobre as condições habitacionais dos alunos.</li>
+                <li>Visita às residências dos alunos acompanhada por um professor.</li>
+                <li>Coleta de dados sobre: poço de água, latrina, tipo de cozinha, condições do telhado, tipo de piso, presença de sistema fotovoltaico, criação de animais, etc.</li>
+                <li>Apoio à infância.</li>
+                <li>Cuidado de crianças em idade pré-escolar (5-10 crianças) durante o horário escolar.</li>
+                <li>Se possuir um diploma em educação infantil, poderá formar jovens mulheres locais para o papel de educadoras, sob a supervisão do professor do ensino fundamental.</li>
+            </ul>
+
+            <h3 class="text-xl font-bold text-red-600 mt-6">🎁 Benefícios Oferecidos</h3>
+            <ul class="list-disc pl-6 text-lg text-gray-700 space-y-2">
+                <li>Passagem aérea coberta.</li>
+                <li>Acomodação privada fornecida.</li>
+                <li>Transporte gratuito e hospedagem para visitas no país durante os fins de semana.</li>
+                <li>Reembolso de despesas com vacinas obrigatórias.</li>
+                <li>Reembolso de despesas médicas no local.</li>
+            </ul>
+            <h3 class="text-xl font-bold text-red-600 mt-6">✅ Requisitos</h3>
+<ul class="list-disc pl-6 text-lg text-gray-700 space-y-2">
+    <li>Conhecimento básico do uso de computadores e da Internet.</li>
+    <li>Capacidade de ensinar conceitos básicos de informática para pessoas com pouca experiência digital.</li>
+    <li>Aptidão para trabalhar em contextos educativos e com crianças.</li>
+    <li>Flexibilidade e adaptabilidade.</li>
+    <li>Preferencialmente, experiência no setor educacional ou com comunidades locais.</li>
+    <li>Experiência de trabalho ou viagem ao Terceiro Mundo.</li>
+</ul>
+        </div>
+    </div>
+</section>
+
+
+<section class="bg-white py-12 flex justify-center">
+    <div class="container mx-auto px-6 lg:px-16 max-w-3xl bg-gray-100 shadow-lg rounded-lg p-8">
+        
+        <!-- Título motivador -->
+        <h2 class="text-3xl font-bold text-red-600 mb-6 text-center">🌍 ¡Únete al Voluntariado en África!</h2>
+        <p class="text-lg text-gray-700 text-center mb-6">
+            Completa este formulario para ser parte de nuestra misión en Guinea Bissau y marcar la diferencia.
+        </p>
+
+        <!-- Formulario -->
+        <form action="#" method="POST" class="space-y-6">
+            
+            <!-- Nombre -->
+            <div>
+                <label class="block text-gray-800 font-semibold mb-2">Nombre Completo:</label>
+                <input type="text" name="nombre" required class="w-full px-4 py-3 border rounded-lg shadow-sm">
+            </div>
+
+            <!-- Email -->
+            <div>
+                <label class="block text-gray-800 font-semibold mb-2">Correo Electrónico:</label>
+                <input type="email" name="email" required class="w-full px-4 py-3 border rounded-lg shadow-sm">
+            </div>
+
+            <!-- Teléfono -->
+            <div>
+                <label class="block text-gray-800 font-semibold mb-2">Teléfono:</label>
+                <input type="tel" name="telefono" required class="w-full px-4 py-3 border rounded-lg shadow-sm">
+            </div>
+
+            <!-- País de Residencia -->
+            <div>
+                <label class="block text-gray-800 font-semibold mb-2">País de Residencia:</label>
+                <input type="text" name="pais" required class="w-full px-4 py-3 border rounded-lg shadow-sm">
+            </div>
+
+            <!-- Pregunta sobre requisitos -->
+            <div>
+                <label class="block text-gray-800 font-semibold mb-2">¿Usted cumple con todos los requisitos?</label>
+                <select name="cumple_requisitos" required class="w-full px-4 py-3 border rounded-lg shadow-sm">
+                    <option value="Sí">Sí</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+
+            <!-- Botón de envío -->
+            <div class="text-center">
+                <button type="submit" class="bg-red-600 text-white px-6 py-3 rounded-lg text-lg font-bold hover:bg-red-700">
+                    Enviar Inscripción
+                </button>
+            </div>
+
+        </form>
+    </div>
+</section>
+
+
+    <footer class="bg-red-600 text-white py-12">
+        <div class="container mx-auto max-w-[1280px] grid grid-cols-1 md:grid-cols-4 gap-12 text-center md:text-left">
+            
+            <!-- Columna 1: Logo cuadrado -->
+            <div class="flex justify-center md:justify-start animate-fade-in">
+                <img src="https://ubiswiss.org/wp-content/uploads/2024/05/icono-ubi-swiss.png" 
+                     alt="UBI Swiss Logo" class="w-24 h-24">
+            </div>
+    
+            <!-- Columna 2: Texto de misión -->
+            <div class="animate-slide-up">
+                <h3 class="text-xl font-bold mb-4">Nuestra Misión</h3>
+                <p class="text-lg font-light">
+                    📌 Provisión de renta básica incondicional, desarrollo de infraestructura básica, salud, educación, preservación cultural y protección animal.
+                </p>
+            </div>
+    
+            <!-- Columna 3: Menú de navegación en dos columnas -->
+            <div class="animate-slide-up">
+                <h3 class="text-xl font-bold mb-4">Explora</h3>
+                <div class="grid grid-cols-2 gap-4">
+                    <a href="#" class="hover:underline">🏠 Renta Básica</a>
+                    <a href="#" class="hover:underline">🚽 Baños y Pozos Sépticos</a>
+                    <a href="#" class="hover:underline">🔥 Cocinas Saludables</a>
+                    <a href="#" class="hover:underline">🏥 Atención Básica Sanitaria</a>
+                    <a href="#" class="hover:underline">🦷 Cuidado Dental</a>
+                    <a href="#" class="hover:underline">🐶 Protección de Perros y Gatos</a>
+                </div>
+            </div>
+    
+            <!-- Columna 4: Contacto y redes sociales -->
+            <div class="animate-slide-up">
+                <h3 class="text-xl font-bold mb-4">Contáctenos</h3>
+                <p class="text-lg">📞 +57 312 536 66 39</p>
+                <p class="text-lg">📧 info@ubiswiss.org</p>
+    
+                <!-- Redes sociales con iconos bien distribuidos -->
+                <div class="flex justify-center md:justify-start mt-6 space-x-5">
+                    <a href="#" class="text-white text-2xl hover:opacity-80"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="text-white text-2xl hover:opacity-80"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-white text-2xl hover:opacity-80"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-white text-2xl hover:opacity-80"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

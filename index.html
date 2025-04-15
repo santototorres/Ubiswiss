@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UBI Swiss</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .social-icon {
+            width: 24px;
+            height: 24px;
+            fill: #ffffff; /* Color blanco para los SVG */
+        }
+        nav a {
+            transition: color 0.3s ease, transform 0.2s ease;
+        }
+        nav a:hover {
+            color: #d32f2f; /* Rojo oscuro al pasar el cursor */
+            transform: translateY(-2px); /* Elevación ligera */
+        }
+        .submenu {
+            display: none; /* Oculta los submenús por defecto */
+        }
+        .group:hover .submenu {
+            display: block; /* Muestra los submenús al pasar el mouse */
+        }
+        .submenu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 50;
+            background-color: #ffffff;
+            color: #000000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            min-width: 220px;
+        }
+        .submenu a {
+            padding: 10px 16px;
+            display: block;
+            white-space: nowrap; /* Evita que el texto se parta en varias líneas */
+        }
+        .submenu a:hover {
+            background-color: #f3f4f6; /* Fondo gris claro al hover */
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+
+    <!-- First Section: Red Bar -->
+    <section class="bg-red-600 text-white py-4">
+        <div class="container mx-auto flex justify-end items-center px-6 lg:px-16 space-x-6">
+            <!-- Social Media Icons -->
+            <a href="https://www.facebook.com/profile.php?id=61561971363926&mibextid=LQQJ4d" target="_blank" rel="noopener noreferrer">
+                <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+                    <path d="M 25 3 C 12.861562 3 3 12.861562 3 25 C 3 36.019135 11.127533 45.138355 21.712891 46.728516 L 22.861328 46.902344 L 22.861328 29.566406 L 17.664062 29.566406 L 17.664062 26.046875 L 22.861328 26.046875 L 22.861328 21.373047 C 22.861328 18.494965 23.551973 16.599417 24.695312 15.410156 C 25.838652 14.220896 27.528004 13.621094 29.878906 13.621094 C 31.758714 13.621094 32.490022 13.734993 33.185547 13.820312 L 33.185547 16.701172 L 30.738281 16.701172 C 29.349697 16.701172 28.210449 17.475903 27.619141 18.507812 C 27.027832 19.539724 26.84375 20.771816 26.84375 22.027344 L 26.84375 26.044922 L 32.966797 26.044922 L 32.421875 29.564453 L 26.84375 29.564453 L 26.84375 46.929688 L 27.978516 46.775391 C 38.71434 45.319366 47 36.126845 47 25 C 47 12.861562 37.138438 3 25 3 z"></path>
+                </svg>
+            </a>
+            <a href="https://www.instagram.com/ubi.swiss?igsh=MXBvOW83OW4zbmJpNg%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer">
+                <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+                    <path d="M 16 3 C 8.8324839 3 3 8.8324839 3 16 L 3 34 C 3 41.167516 8.8324839 47 16 47 L 34 47 C 41.167516 47 47 41.167516 47 34 L 47 16 C 47 8.8324839 41.167516 3 34 3 L 16 3 z M 16 5 L 34 5 C 40.086484 5 45 9.9135161 45 16 L 45 34 C 45 40.086484 40.086484 45 34 45 L 16 45 C 9.9135161 45 5 40.086484 5 34 L 5 16 C 5 9.9135161 9.9135161 5 16 5 z M 37 11 A 2 2 0 0 0 35 13 A 2 2 0 0 0 37 15 A 2 2 0 0 0 39 13 A 2 2 0 0 0 37 11 z M 25 14 C 18.936712 14 14 18.936712 14 25 C 14 31.063288 18.936712 36 25 36 C 31.063288 36 36 31.063288 36 25 C 36 18.936712 31.063288 14 25 14 z M 25 16 C 29.982407 16 34 20.017593 34 25 C 34 29.982407 29.982407 34 25 34 C 20.017593 34 16 29.982407 16 25 C 16 20.017593 20.017593 16 25 16 z"></path>
+                </svg>
+            </a>
+            <a href="#donate" class="bg-white text-red-600 px-6 py-2 rounded-lg hover:bg-gray-200 text-sm lg:text-base">Donar</a>
+        </div>
+    </section>
+
+    <section class="bg-white text-gray-800 shadow-md sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center px-6 lg:px-16 py-4">
+            <!-- Logo -->
+            <img src="https://ubiswiss.org/wp-content/uploads/2024/05/Logo-UBI-Swiss-Org.webp" alt="UBI Swiss Logo" class="w-32 lg:w-40">
+            
+            <!-- Hamburger Button for Mobile -->
+            <button class="md:hidden focus:outline-none" id="menu-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+    
+            <!-- Main Menu (Desktop View) -->
+            <nav class="hidden md:flex space-x-6 text-base font-bold relative" id="menu">
+                <a href="#home" class="hover:text-red-600">Home</a>
+                <a href="#about-us" class="hover:text-red-600">Sobre Nosotros</a>
+                
+                <!-- Dropdown Menu -->
+                <div class="relative group">
+                    <a href="#" class="hover:text-red-600">Nuestro Trabajo</a>
+                    <div class="submenu bg-white shadow-lg rounded-lg absolute hidden group-hover:block">
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">La Renta Básica</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Baños y Pozos Sépticos</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Cocinas Libres de Humo</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Atención Básica Sanitaria</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Cuidado Dental</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Protección para Perros y Gatos</a>
+                    </div>
+                </div>
+    
+                <a href="#africa" class="hover:text-red-600">Africa</a>
+                <a href="#contact-us" class="hover:text-red-600">Contáctenos</a>
+            </nav>
+        </div>
+    
+        <!-- Responsive Menu for Mobile -->
+        <div class="hidden flex flex-col bg-white md:hidden" id="responsive-menu">
+            <a href="#home" class="py-4 px-6 border-b border-gray-300 hover:bg-gray-100">Home</a>
+            <a href="#about-us" class="py-4 px-6 border-b border-gray-300 hover:bg-gray-100">Sobre Nosotros</a>
+            <div class="relative">
+                <button class="py-4 px-6 w-full text-left hover:bg-gray-100 flex items-center justify-between" id="submenu-toggle">
+                    Nuestro Trabajo
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 9l6 6 6-6" />
+                    </svg>
+                </button>
+                <div class="hidden flex flex-col bg-gray-100 rounded-lg pl-6" id="mobile-submenu">
+                    <a href="#" class="py-3 px-6 hover:bg-gray-200">La Renta Básica</a>
+                    <a href="#" class="py-3 px-6 hover:bg-gray-200">Baños y Pozos Sépticos</a>
+                    <a href="#" class="py-3 px-6 hover:bg-gray-200">Cocinas Libres de Humo</a>
+                    <a href="#" class="py-3 px-6 hover:bg-gray-200">Atención Básica Sanitaria</a>
+                    <a href="#" class="py-3 px-6 hover:bg-gray-200">Cuidado Dental</a>
+                    <a href="#" class="py-3 px-6 hover:bg-gray-200">Protección para Perros y Gatos</a>
+                </div>
+            </div>
+            <a href="#africa" class="py-4 px-6 border-b border-gray-300 hover:bg-gray-100">Africa</a>
+            <a href="#contact-us" class="py-4 px-6 hover:bg-gray-100">Contáctenos</a>
+        </div>
+    
+        <!-- JavaScript -->
+        <script>
+            // Toggle Mobile Menu
+            const menuToggle = document.getElementById('menu-toggle');
+            const responsiveMenu = document.getElementById('responsive-menu');
+            const submenuToggle = document.getElementById('submenu-toggle');
+            const mobileSubmenu = document.getElementById('mobile-submenu');
+    
+            menuToggle.addEventListener('click', () => {
+                responsiveMenu.classList.toggle('hidden');
+            });
+    
+            submenuToggle.addEventListener('click', () => {
+                mobileSubmenu.classList.toggle('hidden');
+            });
+        </script>
+    </section>
+
+    <section class="relative bg-fixed bg-center bg-cover" style="background-image: url('https://ubiswiss.org/wp-content/uploads/2024/07/WhatsApp-Image-2024-07-22-at-4.59.20-PM-1.jpeg'); height: 100vh;">
+        <!-- Overlay para contraste -->
+        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div class="relative z-10 flex flex-col justify-center items-center h-full text-center text-white px-6 lg:px-16">
+            <!-- Título -->
+            <h1 class="text-5xl lg:text-6xl font-bold mb-6 drop-shadow-lg">
+                Construyamos juntos un futuro mejor
+            </h1>
+            <!-- Subtítulo -->
+            <p class="text-lg lg:text-xl mb-8 drop-shadow-md">
+                En UBI Swiss, estamos comprometidos con un mundo sostenible y equitativo.
+            </p>
+            <!-- Botones de llamada a la acción -->
+            <div class="flex space-x-4">
+                <a href="#about-us" class="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 text-lg font-bold drop-shadow">
+                    Descubre Más
+                </a>
+                <a href="#donate" class="bg-gray-800 text-white px-6 py-3 rounded-lg hover:bg-gray-900 text-lg font-bold drop-shadow">
+                    Únete a Nosotros
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-white py-16">
+        <div class="container mx-auto px-6 lg:px-16 text-center">
+            <!-- Descripción de la ONG -->
+            <h2 class="text-4xl font-bold text-red-600 mb-6 animate-fade-in">Nuestra Misión</h2>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-12 animate-fade-in">
+                Somos una ONG sin ánimo de lucro dedicada a la provisión de renta básica incondicional, el desarrollo de infraestructura básica, 
+                así como a la promoción de la salud, la educación, la preservación cultural y la protección animal en zonas rurales de países en desarrollo. 
+                Actualmente estamos trabajando en proyectos en Vietnam y Bolivia, y tenemos la ambición de expandir nuestras operaciones a más países de Latinoamérica.
+            </p>
+    
+            <!-- Servicios -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- La Renta Básica -->
+                <div class="bg-gray-100 p-4 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 animate-slide-up">
+                    <img src="https://ubiswiss.org/wp-content/uploads/elementor/thumbs/renta-ba%CC%81sica-ubi-swiss26-e1720805676601-qr0fu92i9b3ievv2h0k8ga2vh199zkvmv7mjnmzevw.jpg" 
+                         alt="Renta Básica" class="w-full aspect-[1/1] object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-bold text-red-600">Renta Básica</h3>
+                    <p class="text-gray-600">Garantizamos una renta mínima para mejorar la calidad de vida en comunidades rurales.</p>
+                </div>
+    
+                <!-- Baños y Pozos Sépticos -->
+                <div class="bg-gray-100 p-4 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 animate-slide-up">
+                    <img src="https://ubiswiss.org/wp-content/uploads/2024/05/Ban%CC%83os-y-Pozos-Septicos.jpg" 
+                         alt="Baños y Pozos Sépticos" class="w-full aspect-[1/1] object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-bold text-red-600">Baños y Pozos Sépticos</h3>
+                    <p class="text-gray-600">Desarrollamos infraestructura sanitaria para comunidades sin acceso a sistemas adecuados.</p>
+                </div>
+    
+                <!-- Cocinas Libres de Humo (Imagen actualizada) -->
+                <div class="bg-gray-100 p-4 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 animate-slide-up">
+                    <img src="https://ubiswiss.org/wp-content/uploads/2024/07/3-1.png" 
+                         alt="Cocinas Libres de Humo" class="w-full aspect-[1/1] object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-bold text-red-600">Cocinas Libres de Humo</h3>
+                    <p class="text-gray-600">Implementamos soluciones para cocinar de manera segura y sostenible.</p>
+                </div>
+    
+                <!-- Atención Básica Sanitaria -->
+                <div class="bg-gray-100 p-4 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 animate-slide-up">
+                    <img src="https://ubiswiss.org/wp-content/uploads/2024/07/nina-corte-de-unas-ubi-swiss-e1720558514819-931x1024.jpg" 
+                         alt="Atención Básica Sanitaria" class="w-full aspect-[1/1] object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-bold text-red-600">Atención Sanitaria</h3>
+                    <p class="text-gray-600">Brindamos acceso a atención médica primaria a comunidades vulnerables.</p>
+                </div>
+    
+                <!-- Cuidado Dental -->
+                <div class="bg-gray-100 p-4 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 animate-slide-up">
+                    <img src="https://ubiswiss.org/wp-content/uploads/2024/05/Cuidado-Dental.jpg" 
+                         alt="Cuidado Dental" class="w-full aspect-[1/1] object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-bold text-red-600">Cuidado Dental</h3>
+                    <p class="text-gray-600">Promovemos la salud bucal con programas de prevención y atención odontológica.</p>
+                </div>
+    
+                <!-- Protección para Perros y Gatos -->
+                <div class="bg-gray-100 p-4 rounded-lg shadow-lg transform hover:scale-105 transition duration-300 animate-slide-up">
+                    <img src="https://ubiswiss.org/wp-content/uploads/2024/05/perro-ubi-swiss1.jpeg" 
+                         alt="Protección para Perros y Gatos" class="w-full aspect-[1/1] object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-bold text-red-600">Protección Animal</h3>
+                    <p class="text-gray-600">Rescatamos y protegemos animales en situación de calle en comunidades rurales.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-gray-100 py-16">
+        <div class="container mx-auto px-6 lg:px-16 flex flex-col md:flex-row items-center gap-10">
+            <!-- Imagen con efecto -->
+            <div class="w-full md:w-1/2 mb-6 md:mb-0 animate-fade-in">
+                <img src="https://ubiswiss.org/wp-content/uploads/2024/05/Casa-Central-Portada-1-1024x818.jpg" 
+                     alt="Nuestra Misión" class="w-full rounded-lg shadow-lg transform transition duration-300 hover:scale-105">
+            </div>
+            
+            <!-- Texto con más espacio -->
+            <div class="w-full md:w-1/2 text-center md:text-left animate-slide-up">
+                <h2 class="text-4xl font-bold text-red-600 mb-4">Nuestra Misión</h2>
+                <h3 class="text-2xl font-semibold text-gray-800 mb-6">Cambiar Vidas con la Renta Básica Incondicional</h3>
+                <p class="text-lg text-gray-600 mb-4">
+                    En <span class="font-bold text-red-600">UBI Swiss</span>, creemos realmente que la dignidad y la seguridad económica son derechos humanos fundamentales.
+                </p>
+                <p class="text-lg text-gray-600">
+                    Además, trabajamos incansablemente para ofrecer una <span class="font-bold text-red-600">Renta Básica Incondicional (RBI)</span> a familias en extrema pobreza, 
+                    transformando vidas y comunidades.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-white py-16">
+        <div class="container mx-auto px-6 lg:px-16 text-center">
+            <!-- Título Principal -->
+            <h2 class="text-4xl font-bold text-red-600 mb-6 animate-fade-in">Únete a Nuestra Causa</h2>
+            <h3 class="text-2xl font-semibold text-gray-800 mb-6">Juntos Podemos Hacer la Diferencia</h3>
+    
+            <!-- Texto descriptivo -->
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-8 animate-fade-in">
+                Tu ayuda es fundamental en nuestra misión de crear un futuro más saludable y próspero para las comunidades rurales en Vietnam, Bolivia y más allá.
+            </p>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-8 animate-fade-in">
+                Ya sea a través de <span class="font-bold text-red-600">donaciones</span>, <span class="font-bold text-red-600">voluntariado</span> o simplemente <span class="font-bold text-red-600">difundiendo la conciencia</span>, cada acción cuenta. 
+                ¡Únete a nosotros hoy y sé parte del cambio hacia un mundo libre de humo tóxico y enfermedades respiratorias!
+            </p>
+    
+            <!-- Íconos con información -->
+            <div class="flex flex-wrap justify-center gap-6 mb-8">
+                <div class="flex items-center space-x-3 bg-gray-100 p-4 rounded-lg shadow-lg animate-slide-up">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12h3m-3 0H9m6 0V9m0 3v3m0-3H9m0 3v-3m0-3V9m0 3H6m3 0H9m0 0v-3m0 3v3"/>
+                    </svg>
+                    <span class="text-lg font-bold text-gray-800">Haz una Donación</span>
+                </div>
+    
+                <div class="flex items-center space-x-3 bg-gray-100 p-4 rounded-lg shadow-lg animate-slide-up">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l-2-2m4-4l-2 2m0 0l-2 2m4-4l-2 2m2 10H6m12 0h-6"/>
+                    </svg>
+                    <span class="text-lg font-bold text-gray-800">Sé Voluntario</span>
+                </div>
+    
+                <div class="flex items-center space-x-3 bg-gray-100 p-4 rounded-lg shadow-lg animate-slide-up">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 11h14m-7-7v14"/>
+                    </svg>
+                    <span class="text-lg font-bold text-gray-800">Comparte Nuestra Misión</span>
+                </div>
+            </div>
+    
+            <!-- Botón de acción -->
+            <a href="#join-us" class="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 text-lg font-bold drop-shadow animate-bounce">
+                ¡Únete a Nosotros!
+            </a>
+        </div>
+    </section>
+
+    <section class="bg-white py-16">
+        <div class="container mx-auto px-6 lg:px-16 flex flex-wrap justify-center gap-12 text-center">
+            <!-- Indicador 1: Familias beneficiarias -->
+            <div class="counter text-red-600 text-5xl font-bold" data-target="95">0</div>
+            <p class="text-lg text-gray-600 border-b-4 border-red-600 px-4">Familias beneficiadas</p>
+    
+            <!-- Indicador 2: Animales rescatados -->
+            <div class="counter text-red-600 text-5xl font-bold" data-target="80">0</div>
+            <p class="text-lg text-gray-600 border-b-4 border-red-600 px-4">Animales rescatados</p>
+    
+            <!-- Indicador 3: Cocinas construidas -->
+            <div class="counter text-red-600 text-5xl font-bold" data-target="60">0</div>
+            <p class="text-lg text-gray-600 border-b-4 border-red-600 px-4">Cocinas construidas</p>
+        </div>
+    
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const counters = document.querySelectorAll('.counter');
+                const speed = 40;
+    
+                const countUp = (counter) => {
+                    const target = +counter.getAttribute('data-target');
+                    let count = 0;
+                    const increment = Math.ceil(target / speed);
+    
+                    const updateCount = () => {
+                        if (count < target) {
+                            count += increment;
+                            counter.innerText = `+${count}`;
+                            setTimeout(updateCount, 30);
+                        } else {
+                            counter.innerText = `+${target}`;
+                        }
+                    };
+                    updateCount();
+                };
+    
+                const observer = new IntersectionObserver(entries => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            countUp(entry.target);
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.5 });
+    
+                counters.forEach(counter => observer.observe(counter));
+            });
+        </script>
+    </section>
+
+    <section class="bg-gray-100 py-12 flex justify-center">
+        <div class="container mx-auto px-6 lg:px-16 flex flex-col md:flex-row items-center justify-center gap-8 text-center md:text-left">
+            <!-- Texto -->
+            <div class="w-full md:w-1/2 animate-slide-up">
+                <h2 class="text-3xl font-bold text-red-600 mb-6">Preservación de la Cultura y las Tradiciones Locales</h2>
+                <h3 class="text-xl font-semibold text-gray-800 mb-6">Apoyando a las Minorías Étnicas a través del Comercio Justo</h3>
+                <p class="text-lg text-gray-700 mb-6">
+                    En <span class="font-bold text-red-600">UBI Swiss</span>, promovemos la diversidad cultural y preservamos las antiguas tradiciones de las minorías étnicas en todo el mundo.
+                </p>
+                <p class="text-lg text-gray-700 mb-6">
+                    Reconocemos el valor intrínseco de estas culturas únicas y estamos comprometidos a apoyarlas a través del comercio justo de sus artesanías y productos agrícolas.
+                </p>
+                <p class="text-lg text-gray-700">
+                    Nos aseguramos de que las prácticas comerciales sean justas y respetuosas, brindando a estas comunidades la oportunidad de mantener vivas sus tradiciones.
+                </p>
+                <h3 class="text-lg font-bold text-red-600 mt-6">Fundación Para La Ayuda Humanitaria en Suramérica</h3>
+            </div>
+    
+            <!-- Imagen ajustada y centrada -->
+            <div class="w-full md:w-1/2 animate-fade-in flex justify-center">
+                <img src="https://ubiswiss.org/wp-content/uploads/2024/05/ubi-swiss-nin%CC%83os.jpeg" 
+                     alt="Preservación de la Cultura" class="w-full max-w-md rounded-lg shadow-lg transform transition duration-500 hover:scale-105">
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-gray-100 py-12 flex justify-center">
+        <div class="container mx-auto px-6 lg:px-16 flex flex-col md:flex-row items-center justify-center gap-8 text-center md:text-left">
+            <!-- Imagen ajustada y centrada a la izquierda -->
+            <div class="w-full md:w-1/2 animate-fade-in flex justify-center">
+                <img src="https://ubiswiss.org/wp-content/uploads/2024/05/Pung-Mui-Man-1024x768.jpg" 
+                     alt="Apoyo a la Sostenibilidad" class="w-full max-w-md rounded-lg shadow-lg transform transition duration-500 hover:scale-105">
+            </div>
+    
+            <!-- Texto a la derecha -->
+            <div class="w-full md:w-1/2 animate-slide-up">
+                <h2 class="text-3xl font-bold text-red-600 mb-6">Apoyo a la Sostenibilidad</h2>
+                <p class="text-lg text-gray-700 mb-6">
+                    En <span class="font-bold text-red-600">UBI Swiss</span>, creemos en un enfoque holístico que abarque no solo la prosperidad económica, sino también la sostenibilidad ambiental y social.
+                </p>
+                <p class="text-lg text-gray-700 mb-6">
+                    Por lo tanto, fomentamos **prácticas agrícolas sostenibles** que protejan los recursos naturales y promuevan la resiliencia a largo plazo de las comunidades.
+                </p>
+                <p class="text-lg text-gray-700">
+                    Además, trabajamos estrechamente con las comunidades para **preservar las técnicas artesanales tradicionales** y fomentar la transmisión intergeneracional del conocimiento.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-white py-8 flex justify-center">
+        <div class="container mx-auto px-6 lg:px-16 text-center animate-fade-in">
+            <h2 class="text-3xl font-bold text-red-600">Fundación Para La Ayuda Humanitaria en Suramérica</h2>
+            <p class="text-xl text-gray-800 mt-4 font-semibold">UBI Swiss Fundación ONG Humanitaria Para Las Américas</p>
+        </div>
+    </section>
+
+    <footer class="bg-red-600 text-white py-12">
+        <div class="container mx-auto max-w-[1280px] grid grid-cols-1 md:grid-cols-4 gap-12 text-center md:text-left">
+            
+            <!-- Columna 1: Logo cuadrado -->
+            <div class="flex justify-center md:justify-start animate-fade-in">
+                <img src="https://ubiswiss.org/wp-content/uploads/2024/05/icono-ubi-swiss.png" 
+                     alt="UBI Swiss Logo" class="w-24 h-24">
+            </div>
+    
+            <!-- Columna 2: Texto de misión -->
+            <div class="animate-slide-up">
+                <h3 class="text-xl font-bold mb-4">Nuestra Misión</h3>
+                <p class="text-lg font-light">
+                    📌 Provisión de renta básica incondicional, desarrollo de infraestructura básica, salud, educación, preservación cultural y protección animal.
+                </p>
+            </div>
+    
+            <!-- Columna 3: Menú de navegación en dos columnas -->
+            <div class="animate-slide-up">
+                <h3 class="text-xl font-bold mb-4">Explora</h3>
+                <div class="grid grid-cols-2 gap-4">
+                    <a href="#" class="hover:underline">🏠 Renta Básica</a>
+                    <a href="#" class="hover:underline">🚽 Baños y Pozos Sépticos</a>
+                    <a href="#" class="hover:underline">🔥 Cocinas Saludables</a>
+                    <a href="#" class="hover:underline">🏥 Atención Básica Sanitaria</a>
+                    <a href="#" class="hover:underline">🦷 Cuidado Dental</a>
+                    <a href="#" class="hover:underline">🐶 Protección de Perros y Gatos</a>
+                </div>
+            </div>
+    
+            <!-- Columna 4: Contacto y redes sociales -->
+            <div class="animate-slide-up">
+                <h3 class="text-xl font-bold mb-4">Contáctenos</h3>
+                <p class="text-lg">📞 +57 312 536 66 39</p>
+                <p class="text-lg">📧 info@ubiswiss.org</p>
+    
+                <!-- Redes sociales con iconos bien distribuidos -->
+                <div class="flex justify-center md:justify-start mt-6 space-x-5">
+                    <a href="#" class="text-white text-2xl hover:opacity-80"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="text-white text-2xl hover:opacity-80"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-white text-2xl hover:opacity-80"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-white text-2xl hover:opacity-80"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
